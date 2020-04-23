@@ -21,6 +21,9 @@ This repository is dedicated to Blockchain Tutorials. Here you can find example 
 - Smart Contract (Stored in IPFS)
 
 
+- One Click DApp 
+    - [Store and Retrieve] (https://oneclickdapp.com/learn-unit/)
+
 - DApp
     - [Demo for Simple Interaction with Ethereum Blockchain](Simple_Interaction_Example_SC.html)
 
