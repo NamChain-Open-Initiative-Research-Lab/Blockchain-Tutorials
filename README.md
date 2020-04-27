@@ -25,12 +25,15 @@ This repository is dedicated to Blockchain Tutorials. Here you can find example 
         - [Contract Link](https://ropsten.etherscan.io/address/0xf5dc36a0eeec4909f3e09cfdc9b29e2343a1c73c)
     - [Registry.sol](https://ipfs.io/ipfs/Qmd73HXiwnhCsGZ7uqoT1QaUeikSg6j4A6fUdb5KGAKyMT)
         - [Contract Link](https://ropsten.etherscan.io/address/0x13248d484eecb610cad3e9e03f8e7b8d477193b2)
+    - [Events.sol](https://ipfs.io/ipfs/QmTFCP8uyL4UFqUQqH9PsQYJhpxtLsHoA6pP5ZQMyAkaCp)
+        - [Contract Link](https://ropsten.etherscan.io/address/0x7d35606eacac8652f2a38c5a52128100e6545871)
 
 - One Click DApp 
     - [Store and Retrieve](https://oneclickdapp.com/learn-unit/)
 
 - DApp
     - [Demo for Simple Interaction with Ethereum Blockchain](Simple_Interaction_Example_SC.html)
+    - [Events Demo Page](Events_Demo.html)
 
 # License
 
