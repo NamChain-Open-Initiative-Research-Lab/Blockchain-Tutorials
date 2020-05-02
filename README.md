@@ -31,6 +31,8 @@ This repository is dedicated to Blockchain Tutorials. Here you can find example 
         - [Contract Link](https://ropsten.etherscan.io/address/0xce2b4087cec369d9ec2dfdece9296b36134ff4bb)
     - [Access.sol](https://ipfs.io/ipfs/QmXUnabQ5YkSrCu613xmwrpSC5MxSuPCgVdZXNb9JFAACz)
         - [Contract Link](https://ropsten.etherscan.io/address/0xef24ce272e971b7771c7ed5f16001295d5570932)
+    - [MyERC721Token.sol](https://ipfs.io/ipfs/QmaCKsKDWMK8nmip51YCBgaUakU6zErwBnM6i8NdgPhdna)
+        - [Contract Link](https://ropsten.etherscan.io/address/0xecff6e3fdf43146ae8e5a093a82b922777218807)
 
 - One Click DApp 
     - [Store and Retrieve](https://oneclickdapp.com/learn-unit/)
