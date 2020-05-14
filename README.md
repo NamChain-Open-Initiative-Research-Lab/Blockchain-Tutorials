@@ -2,7 +2,7 @@
 
 ## Welcome to Blockchain Tutorials
 
-This repository is dedicated to Blockchain Tutorials. Here you can find example smart contract codes, User Interfaces, Sample DApps.
+This repository is dedicated to Blockchain Tutorials on Ethereum Blockchain. Here you can find examples related to smart contract, User Interfaces, DApps.
 
 ## Prerequisite
 - Knowledge on 
@@ -15,6 +15,23 @@ This repository is dedicated to Blockchain Tutorials. Here you can find example 
     - [Test Ethers from Faucet](https://faucet.metamask.io/)
     - [IPFS Companion Browser Extension](https://ipfs.io/)
     - [IPFS Desktop](https://ipfs.io/)
+    
+    
+## Ethereum Blockchain
+
+Ethereum is a second generation Blockchain Technology which is widely referred to as *World Computer*. The native cryptocurrency of the Ethereum Blockchain is called **"Ether (ETH)"**. Ethereum also provides the users the programming capability through its Smart Contract Programming. **Distributed Application (DApps)** can be developed using the smart contracts which is deployed and runs on the Ethereum Blockchain. 
+
+Ethereum Blockchain uses **Ethereum Virtual Machine (EVM)** to execute the transactions. Ethereum uses memory-based Proof of Work (PoW) consensus algorithm. It also offers multiple testnets (Ropsten, Goerli, Kovan, Rinkeby) and dedicated private blockchain (Ganache) support for the development of smart contracts. 
+
+## Solidity Programming
+
+**Solidity** is the dedicated programming language for development of Smart Contracts on Ethereum Blockchain. Solidity is similar to Object Oriented Programming Language. ***Contract*** is the main component in the solidity programming which is similar to ***Class*** in Java. Like, Java, the solidity program on compilation is converted into bytecode for execution in EVM. 
+
+To program Solidity Smart Contracts, Ethereum provides its own online IDE called [Remix](https://remix.ethereum.org/)
+
+## Metamask 
+
+Metamask is a Browser Extension, is a tool which acts as a bridge for communication between the traditional browser to the blockchain (Distributed Web). Web3.js is used in the User Interface Component to enable communication with the Blockchain via Metamask. More on Metamask is [here](https://namchain.blogspot.com/p/metamask.html).
 
 ## Examples
 
