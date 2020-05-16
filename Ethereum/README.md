@@ -56,8 +56,8 @@ Metamask is a Browser Extension, is a tool which acts as a bridge for communicat
     - [Store and Retrieve](https://oneclickdapp.com/learn-unit/)
 
 - DApp
-    - [Demo for Simple Interaction with Ethereum Blockchain](Simple_Interaction_Example_SC.html)
-    - [Events Demo Page](Events_Demo.html)
+    - [Demo for Simple Interaction with Ethereum Blockchain](Examples/Simple_Interaction_Example_SC.html)
+    - [Events Demo Page](Examples/Events_Demo.html)
 
 # License
 
