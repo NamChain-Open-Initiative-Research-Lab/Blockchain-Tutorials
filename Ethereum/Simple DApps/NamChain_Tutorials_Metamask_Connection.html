@@ -1,0 +1,120 @@
+<!-- 
+Author       : Ramaguru Radhakrishnan
+Date Updated : 18.05.2020
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" href="https://1.bp.blogspot.com/-0SArWfduw68/XkxV8EmBBcI/AAAAAAAAABw/h9aWSWbm0J4kilgn3xddzQ3PdoP-e3RZgCLcBGAsYHQ/s1600/SAVE_20200127_132431.jpg" type="image/jpg" sizes="16x16">
+    <title>NamChain Tutorials - MetaMask Connection</title>
+    <meta charset="UTF-8"/>
+	<style>
+	body{        
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+	.container{
+        width: 80%;
+        margin: 0 auto; /* Center the DIV horizontally */
+    }
+	.fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #051F67;
+        padding: 10px 0;
+        color:#E2E0F8;
+    }
+	.fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    } 
+	.container p{
+		padding-top: 80px;
+        line-height: 20px; /* Create scrollbar to test positioning */
+    }
+	
+	</style>
+</head>
+<body>
+	<div class="fixed-header">
+		<div class="container">
+		<center>
+			<h1> <image src="https://1.bp.blogspot.com/-0SArWfduw68/XkxV8EmBBcI/AAAAAAAAABw/h9aWSWbm0J4kilgn3xddzQ3PdoP-e3RZgCLcBGAsYHQ/s1600/SAVE_20200127_132431.jpg" type="image/jpg" width="25px" height="25px"> NamChain Tutorials </h1>
+			<h4> MetaMask Connection</h4>
+		</center>
+		</div>
+	</div>
+        
+	<div class="container">	
+	<p>	 <b><u>Description:</u></b> <br/>
+			MetaMask acts as a bridge between the traditional browser and blockchain network. </br/>
+			Install MetaMask - Browser Extension before proceeding with the Tutorials.
+		
+	<hr>
+	
+	Click the Button to Enable Ethereum and Connect to MetaMask. <br/><button class="enableEthereumButton">Enable Ethereum</button>
+	<h2>Account: <span class="showWalletAddress"></span></h2>
+	<h4>Ethereum Network ID: <span class="showEthereumNetwork"></span></h4>
+	
+	<h4> window.ethereum is injected into the browser once MetaMask is installed.</h4>
+	
+	<p>
+	</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.js"></script>
+
+    <script>	
+	window.addEventListener('load', async () => {
+	
+		console.log('Window Load Event');
+	
+		if (typeof window.ethereum !== 'undefined') { 
+			console.log("MetaMask is installed!"); 
+			}
+			
+		// Modern DApp browsers
+		if (window.ethereum) {
+			window.web3 = new Web3(ethereum);
+			ethereum.autoRefreshOnNetworkChange = false;
+			await ethereum.enable();
+			}
+		// Legacy DApp browsers
+		else if (window.web3) {
+			//window.web3 = new Web3(web3.currentProvider);
+			window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/cbd9dc11b30147e9a2cc974be655ef7c")); 
+			}
+		// Non-DApp browsers
+		else {
+			console.log('Non-Ethereum browser detected. Please install MetaMask');
+			}
+
+			});
+			
+			const ethereumButton = document.querySelector('.enableEthereumButton');
+			const showWalletAddress = document.querySelector('.showWalletAddress');
+			const showEthereumNetwork = document.querySelector('.showEthereumNetwork');
+
+			ethereumButton.addEventListener('click', () => {
+			  getAccount();
+			});
+			
+			async function getAccount() {
+			  const accounts = await ethereum.enable();
+			  const account = accounts[0];
+			  showWalletAddress.innerHTML = account;
+			  showEthereumNetwork.innerHTML = window.ethereum.chainId;
+			}
+		
+    </script>
+	
+	<div class="fixed-footer">
+		<div class="container">
+			<center> <h5> Copyright &copy; 2019-2020 <br/> NamChain - Open Initiative Research Lab </h5> </center>
+		</div>
+	</div>
+	
+</body>
+</html>

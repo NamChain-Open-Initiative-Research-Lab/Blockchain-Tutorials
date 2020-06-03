@@ -1,0 +1,645 @@
+<!-- 
+Author       : Ramaguru Radhakrishnan
+Date Updated : 22.05.2020
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" href="https://1.bp.blogspot.com/-0SArWfduw68/XkxV8EmBBcI/AAAAAAAAABw/h9aWSWbm0J4kilgn3xddzQ3PdoP-e3RZgCLcBGAsYHQ/s1600/SAVE_20200127_132431.jpg" type="image/jpg" sizes="16x16">
+    <title>NamChain Tutorials - ERC-721 Token</title>
+    <meta charset="UTF-8"/>
+	<style>
+	body{        
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+	.container{
+        width: 80%;
+        margin: 0 auto;
+    }
+	.fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #051F67;
+        padding: 10px 0;
+        color:#E2E0F8;
+    }
+	.fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    } 
+	.container p{
+		padding-top: 80px;
+        line-height: 20px;
+    }
+	
+	</style>
+</head>
+<body>
+	<div class="fixed-header">
+		<div class="container">
+		<center>
+			<h1> <image src="https://1.bp.blogspot.com/-0SArWfduw68/XkxV8EmBBcI/AAAAAAAAABw/h9aWSWbm0J4kilgn3xddzQ3PdoP-e3RZgCLcBGAsYHQ/s1600/SAVE_20200127_132431.jpg" type="image/jpg" width="25px" height="25px"> NamChain Tutorials </h1>
+			<h4> ERC-721 Token - RAMCoin </h4> 
+		</center>
+		</div>
+	</div>
+        
+	<div class="container">	
+	<p>	 <b> <u> Description: </u></b> <br/>
+		 Create a New RAMCoin and Burn a RAMCoin
+		
+	<hr>
+		<b><u>RAMCoin Status</u> </b> <br/><br/>
+		<form>
+			<b>Symbol</b>				:<div id="sym"></div><br/>
+			<b>Total Coins</b>		:<div id="tsupply"></div><br/>
+		</form>
+	
+	<hr>
+		<b><u> Create RAMCoin </u></b> <br/><br/>
+		<form>
+			Enter the new TokenID : <input type="text" id="mtokenID" name="mtokenID">
+			<input type="button" onclick="mint()" value="Mint RAMCOIN"> <br/>
+			<h4> Transaction ID: <a href="https://ropsten.etherscan.io/"><div id="mresult"></div></a> </h4>
+		</form>
+		<br/><br/>
+	<hr> 
+		<b><u>Burn RAMCoin</u></b> <br/><br/>
+		<form>
+			Enter the Existing TokenID : <input type="text" id="btokenID" name="btokenID">
+			<input type="button" onclick="burn()" value="Burn RAMCOIN"> <br/>
+			<h4> Transaction ID: <a href="https://ropsten.etherscan.io/"><div id="bresult"></div></a> </h4>
+		</form>
+	<hr>	
+	</p>	
+	</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
+    <script>	
+	window.addEventListener('load', async () => {
+
+	
+		if (typeof window.ethereum !== 'undefined') { 
+			console.log("MetaMask is Available :) !"); 
+			}
+			
+		// Modern DApp browsers
+		if (window.ethereum) {
+			window.web3 = new Web3(ethereum);
+			ethereum.autoRefreshOnNetworkChange = false;
+			await ethereum.enable();
+			}
+		// Legacy DApp browsers
+		else if (window.web3) {
+			//window.web3 = new Web3(web3.currentProvider);
+			window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/cbd9dc11b30147e9a2cc974be655ef7c")); 
+			}
+		// Non-DApp browsers
+		else {
+			console.log('Non-Ethereum browser detected. Please install MetaMask');
+			}
+			
+			
+			loadstatus();
+			
+			});
+			
+			// Smart Contract ABI - Application Binary Interfaces
+				var abi = [
+							{
+								"inputs": [],
+								"stateMutability": "nonpayable",
+								"type": "constructor"
+							},
+							{
+								"anonymous": false,
+								"inputs": [
+									{
+										"indexed": true,
+										"internalType": "address",
+										"name": "owner",
+										"type": "address"
+									},
+									{
+										"indexed": true,
+										"internalType": "address",
+										"name": "approved",
+										"type": "address"
+									},
+									{
+										"indexed": true,
+										"internalType": "uint256",
+										"name": "tokenId",
+										"type": "uint256"
+									}
+								],
+								"name": "Approval",
+								"type": "event"
+							},
+							{
+								"anonymous": false,
+								"inputs": [
+									{
+										"indexed": true,
+										"internalType": "address",
+										"name": "owner",
+										"type": "address"
+									},
+									{
+										"indexed": true,
+										"internalType": "address",
+										"name": "operator",
+										"type": "address"
+									},
+									{
+										"indexed": false,
+										"internalType": "bool",
+										"name": "approved",
+										"type": "bool"
+									}
+								],
+								"name": "ApprovalForAll",
+								"type": "event"
+							},
+							{
+								"anonymous": false,
+								"inputs": [
+									{
+										"indexed": true,
+										"internalType": "address",
+										"name": "from",
+										"type": "address"
+									},
+									{
+										"indexed": true,
+										"internalType": "address",
+										"name": "to",
+										"type": "address"
+									},
+									{
+										"indexed": true,
+										"internalType": "uint256",
+										"name": "tokenId",
+										"type": "uint256"
+									}
+								],
+								"name": "Transfer",
+								"type": "event"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "address",
+										"name": "to",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "tokenId",
+										"type": "uint256"
+									}
+								],
+								"name": "approve",
+								"outputs": [],
+								"stateMutability": "nonpayable",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "address",
+										"name": "owner",
+										"type": "address"
+									}
+								],
+								"name": "balanceOf",
+								"outputs": [
+									{
+										"internalType": "uint256",
+										"name": "",
+										"type": "uint256"
+									}
+								],
+								"stateMutability": "view",
+								"type": "function"
+							},
+							{
+								"inputs": [],
+								"name": "baseURI",
+								"outputs": [
+									{
+										"internalType": "string",
+										"name": "",
+										"type": "string"
+									}
+								],
+								"stateMutability": "view",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "uint256",
+										"name": "tokenId",
+										"type": "uint256"
+									}
+								],
+								"name": "burnMyToken",
+								"outputs": [],
+								"stateMutability": "nonpayable",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "uint256",
+										"name": "tokenId",
+										"type": "uint256"
+									}
+								],
+								"name": "getApproved",
+								"outputs": [
+									{
+										"internalType": "address",
+										"name": "",
+										"type": "address"
+									}
+								],
+								"stateMutability": "view",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "address",
+										"name": "owner",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "operator",
+										"type": "address"
+									}
+								],
+								"name": "isApprovedForAll",
+								"outputs": [
+									{
+										"internalType": "bool",
+										"name": "",
+										"type": "bool"
+									}
+								],
+								"stateMutability": "view",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "uint256",
+										"name": "tokenId",
+										"type": "uint256"
+									}
+								],
+								"name": "mintMyToken",
+								"outputs": [],
+								"stateMutability": "nonpayable",
+								"type": "function"
+							},
+							{
+								"inputs": [],
+								"name": "name",
+								"outputs": [
+									{
+										"internalType": "string",
+										"name": "",
+										"type": "string"
+									}
+								],
+								"stateMutability": "view",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "uint256",
+										"name": "tokenId",
+										"type": "uint256"
+									}
+								],
+								"name": "ownerOf",
+								"outputs": [
+									{
+										"internalType": "address",
+										"name": "",
+										"type": "address"
+									}
+								],
+								"stateMutability": "view",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "address",
+										"name": "from",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "to",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "tokenId",
+										"type": "uint256"
+									}
+								],
+								"name": "safeTransferFrom",
+								"outputs": [],
+								"stateMutability": "nonpayable",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "address",
+										"name": "from",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "to",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "tokenId",
+										"type": "uint256"
+									},
+									{
+										"internalType": "bytes",
+										"name": "_data",
+										"type": "bytes"
+									}
+								],
+								"name": "safeTransferFrom",
+								"outputs": [],
+								"stateMutability": "nonpayable",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "address",
+										"name": "operator",
+										"type": "address"
+									},
+									{
+										"internalType": "bool",
+										"name": "approved",
+										"type": "bool"
+									}
+								],
+								"name": "setApprovalForAll",
+								"outputs": [],
+								"stateMutability": "nonpayable",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "bytes4",
+										"name": "interfaceId",
+										"type": "bytes4"
+									}
+								],
+								"name": "supportsInterface",
+								"outputs": [
+									{
+										"internalType": "bool",
+										"name": "",
+										"type": "bool"
+									}
+								],
+								"stateMutability": "view",
+								"type": "function"
+							},
+							{
+								"inputs": [],
+								"name": "symbol",
+								"outputs": [
+									{
+										"internalType": "string",
+										"name": "",
+										"type": "string"
+									}
+								],
+								"stateMutability": "view",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "uint256",
+										"name": "index",
+										"type": "uint256"
+									}
+								],
+								"name": "tokenByIndex",
+								"outputs": [
+									{
+										"internalType": "uint256",
+										"name": "",
+										"type": "uint256"
+									}
+								],
+								"stateMutability": "view",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "address",
+										"name": "owner",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "index",
+										"type": "uint256"
+									}
+								],
+								"name": "tokenOfOwnerByIndex",
+								"outputs": [
+									{
+										"internalType": "uint256",
+										"name": "",
+										"type": "uint256"
+									}
+								],
+								"stateMutability": "view",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "uint256",
+										"name": "tokenId",
+										"type": "uint256"
+									}
+								],
+								"name": "tokenURI",
+								"outputs": [
+									{
+										"internalType": "string",
+										"name": "",
+										"type": "string"
+									}
+								],
+								"stateMutability": "view",
+								"type": "function"
+							},
+							{
+								"inputs": [],
+								"name": "totalSupply",
+								"outputs": [
+									{
+										"internalType": "uint256",
+										"name": "",
+										"type": "uint256"
+									}
+								],
+								"stateMutability": "view",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "address",
+										"name": "from",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "to",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "tokenId",
+										"type": "uint256"
+									}
+								],
+								"name": "transferFrom",
+								"outputs": [],
+								"stateMutability": "nonpayable",
+								"type": "function"
+							},
+							{
+								"inputs": [
+									{
+										"internalType": "address",
+										"name": "from",
+										"type": "address"
+									},
+									{
+										"internalType": "address",
+										"name": "to",
+										"type": "address"
+									},
+									{
+										"internalType": "uint256",
+										"name": "tokenId",
+										"type": "uint256"
+									}
+								],
+								"name": "transferMyToken",
+								"outputs": [],
+								"stateMutability": "nonpayable",
+								"type": "function"
+							}
+						]
+		
+				//Smart Contract Address
+				var contractaddress = '0xecff6e3fdf43146ae8e5a093a82b922777218807';
+				
+			// Function to get the status about ERC-721 Token
+			function loadstatus() {
+					
+				console.log("Invoking Smart Contracts - Status of RAMCOIN");
+						
+				//Instantiate and connect to contract address via ABI
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: '0xc6Fea06FdBe2c780Db5bcc155b789D5463f50D62', gasPrice: '5000000', gas: '3000000'});
+								
+				//call the "symbol" function
+				var result = myContract.methods.symbol().call(function (err, result) {
+				
+				if (err) { console.log(err); }
+				if (result) { document.getElementById("sym").innerHTML = result; }
+				
+				});
+				
+				//call the "totalSupply" function
+				var result = myContract.methods.totalSupply().call(function (err, result) {
+				
+				if (err) { console.log(err); }
+				if (result) { document.getElementById("tsupply").innerHTML = result; }
+				
+				});
+					
+			}
+
+			// Function to call the "Store Function" in Deployed Smart Contract
+			function mint() {
+					
+				console.log("Invoking Smart Contracts - Minting RAMCOIN");
+						
+				//Instantiate and connect to contract address via ABI
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: '0xc6Fea06FdBe2c780Db5bcc155b789D5463f50D62', gasPrice: '5000000', gas: '3000000'});
+								
+				var value = document.getElementById("mtokenID").value;		
+				
+				//call the "mint" function
+				var result = myContract.methods.mintMyToken(value).send(function (err, result) {
+				
+				if (err) { console.log(err); }
+				if (result) { document.getElementById("mresult").innerHTML = result; }
+				
+				});
+					
+			}
+			
+			// Function to call the "Retreive Function" in Deployed Smart Contract
+			function burn() {
+					
+				console.log("Invoking Smart Contracts - Burning RAMCOIN");
+				
+				//Instantiate and connect to contract address via ABI
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: '0xc6Fea06FdBe2c780Db5bcc155b789D5463f50D62', gasPrice: '5000000', gas: '3000000'});
+				
+				var value = document.getElementById("btokenID").value;					
+								
+				//call the "burn" function
+				var result = myContract.methods.burnMyToken(value).send(function (err, result) {
+				
+				if (err) { console.log(err); }
+				if (result) { document.getElementById("bresult").innerHTML = result;}
+				
+				});
+					
+			}
+    </script>
+	
+	<div class="fixed-footer">
+		<div class="container">
+			<center> <h5> Copyright &copy; 2019-2020 <br/> NamChain - Open Initiative Research Lab </h5> </center>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!-- 
+Author       : Ramaguru Radhakrishnan
+Date Updated : 18.05.2020
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" href="https://1.bp.blogspot.com/-0SArWfduw68/XkxV8EmBBcI/AAAAAAAAABw/h9aWSWbm0J4kilgn3xddzQ3PdoP-e3RZgCLcBGAsYHQ/s1600/SAVE_20200127_132431.jpg" type="image/jpg" sizes="16x16">
+    <title>NamChain Tutorials - Events and Notification Handling</title>
+    <meta charset="UTF-8"/>
+	<style>
+	body{        
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+	.container{
+        width: 80%;
+        margin: 0 auto; /* Center the DIV horizontally */
+    }
+	.fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #051F67;
+        padding: 10px 0;
+        color:#E2E0F8;
+    }
+	.fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    } 
+	.container p{
+		padding-top: 80px;
+        line-height: 20px; /* Create scrollbar to test positioning */
+    }
+	
+	</style>
+</head>
+<body>
+	<div class="fixed-header">
+		<div class="container">
+		<center>
+			<h1> <image src="https://1.bp.blogspot.com/-0SArWfduw68/XkxV8EmBBcI/AAAAAAAAABw/h9aWSWbm0J4kilgn3xddzQ3PdoP-e3RZgCLcBGAsYHQ/s1600/SAVE_20200127_132431.jpg" type="image/jpg" width="25px" height="25px"> NamChain Tutorials </h1>
+			<h4> Events and Notification Handling</h4> 
+		</center>
+		</div>
+	</div>
+        
+	<div class="container">	
+	<p>	 <b><u>Description:</u></b> <br/>
+			   Shows notification when a state change happen in a data stored in blockchain
+	<hr>
+		<b><u>Storage</u></b> <br/><br/>
+		<form>
+			<h4> Notification Received : <div id="result"></div> </h4>
+			<h4> Transaction ID: <a href="https://ropsten.etherscan.io/"><div id="tresult"></div></a> </h4>
+		</form>
+		<br/><br/>
+	<hr> 
+		
+	</p>	
+	</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
+    <script>	
+	window.addEventListener('load', async () => {
+
+	
+		if (typeof window.ethereum !== 'undefined') { 
+			console.log("MetaMask is Available :) !"); 
+			}
+			
+		// Modern DApp browsers
+		if (window.ethereum) {
+			window.web3 = new Web3(ethereum);
+			ethereum.autoRefreshOnNetworkChange = false;
+			await ethereum.enable();
+			}
+		// Legacy DApp browsers
+		else if (window.web3) {
+			//window.web3 = new Web3(web3.currentProvider);
+			window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/cbd9dc11b30147e9a2cc974be655ef7c")); 
+			}
+		// Non-DApp browsers
+		else {
+			console.log('Non-Ethereum browser detected. Please install MetaMask');
+			}
+			
+			});
+			
+		web3 = new Web3(new Web3.providers.WebsocketProvider("wss://ropsten.infura.io/ws/v3/cbd9dc11b30147e9a2cc974be655ef7c"));
+		var id;
+		var sub = new web3.eth.subscribe('logs', { address : '0x7d35606eACAc8652f2a38c5a52128100e6545871', 
+											   topics : ['0x5b2bcb27bc35fa11cb69d16f0c1ce1acc6145c6579b86e65f67f41c1e2f47aef'] },
+		function(error, result) {
+			if(!error)
+				document.getElementById("result").innerHTML = result.data;
+				notifier(result.data);
+				});
+				
+				
+			function notifier(id) {
+				web3 = new Web3(ethereum); 		
+						
+				// contract ABI defines all the variables,constants and functions of the smart contract.
+						var abi = [
+									{
+										"constant": false,
+										"inputs": [
+											{
+												"internalType": "string",
+												"name": "_hashReceivedfromOtherContractaasNotification",
+												"type": "string"
+											}
+										],
+										"name": "receiveHash",
+										"outputs": [],
+										"payable": false,
+										"stateMutability": "nonpayable",
+										"type": "function"
+									}
+								]
+				
+						//Smart Contract Address
+						var contractaddress = '0xe266c99a858aef94edb852709d79bf04771dc74f';
+										
+						//Instantiate and connect to contract address via ABI
+						var myContract = new web3.eth.Contract(abi, contractaddress, {from: '0xc6Fea06FdBe2c780Db5bcc155b789D5463f50D62', gasPrice: '5000000', gas:'3000000'});
+												
+						//call the Notification Receive Function in another Contract
+						var result = myContract.methods.receiveHash(hexToString(id)).send(function (err, result) {
+				
+						if (err) { console.log(err); }
+						if (result) { document.getElementById("tresult").innerHTML = result;}
+						
+						});
+				}
+				
+				function hexToString (hex) 
+					{
+						var tobeconverted = '';
+						tobeconverted = parseInt(hex).toString();
+						console.log(tobeconverted);
+						return tobeconverted;
+					}
+    </script>
+	
+	<div class="fixed-footer">
+		<div class="container">
+			<center> <h5> Copyright &copy; 2019-2020 <br/> NamChain - Open Initiative Research Lab </h5> </center>
+		</div>
+	</div>
+
+</body>
+</html>

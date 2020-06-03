@@ -1,0 +1,180 @@
+<!-- 
+Author       : Ramaguru Radhakrishnan
+Date Updated : 18.05.2020
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" href="https://1.bp.blogspot.com/-0SArWfduw68/XkxV8EmBBcI/AAAAAAAAABw/h9aWSWbm0J4kilgn3xddzQ3PdoP-e3RZgCLcBGAsYHQ/s1600/SAVE_20200127_132431.jpg" type="image/jpg" sizes="16x16">
+    <title>NamChain Tutorials - Storage and Retrieval</title>
+    <meta charset="UTF-8"/>
+	<style>
+	body{        
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+	.container{
+        width: 80%;
+        margin: 0 auto; /* Center the DIV horizontally */
+    }
+	.fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #051F67;
+        padding: 10px 0;
+        color:#E2E0F8;
+    }
+	.fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    } 
+	.container p{
+		padding-top: 80px;
+        line-height: 20px; /* Create scrollbar to test positioning */
+    }
+	
+	</style>
+</head>
+<body>
+	<div class="fixed-header">
+		<div class="container">
+		<center>
+			<h1> <image src="https://1.bp.blogspot.com/-0SArWfduw68/XkxV8EmBBcI/AAAAAAAAABw/h9aWSWbm0J4kilgn3xddzQ3PdoP-e3RZgCLcBGAsYHQ/s1600/SAVE_20200127_132431.jpg" type="image/jpg" width="25px" height="25px"> NamChain Tutorials </h1>
+			<h4> Storage and Retreival</h4> 
+		</center>
+		</div>
+	</div>
+        
+	<div class="container">	
+	<p>	 <b><u>Description:</u></b> <br/>
+		 Stores a value to the blockchain and retrieves the previously stored value from the blockchain </br/>
+		 Storage Smart Contract should be deployed prior to this. ABI and Smart Contract Address has to be replaced.
+		
+	<hr>
+		<b><u>Storage</u></b> <br/><br/>
+		<form>
+			Enter the Value : <input type="text" id="valuetobestored" name="valuetobestored">
+			<input type="button" onclick="store()" value="Store to Blockchain"> <br/>
+			<h4> Transaction ID: <a href="https://ropsten.etherscan.io/"><div id="result"></div></a> </h4>
+		</form>
+		<br/><br/>
+	<hr> 
+		<b><u>Retreival</u></b> <br/><br/>
+		<form>
+			<input type="button" onclick="get()" value="Get Value from Blockchain"> <br/>
+			<h4> Value Stored in the Blockchain <div id="fromBC"></div><h4>
+		</form>
+	<hr>	
+	</p>	
+	</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
+    <script>	
+	window.addEventListener('load', async () => {
+
+	
+		if (typeof window.ethereum !== 'undefined') { 
+			console.log("MetaMask is Available :) !"); 
+			}
+			
+		// Modern DApp browsers
+		if (window.ethereum) {
+			window.web3 = new Web3(ethereum);
+			ethereum.autoRefreshOnNetworkChange = false;
+			await ethereum.enable();
+			}
+		// Legacy DApp browsers
+		else if (window.web3) {
+			//window.web3 = new Web3(web3.currentProvider);
+			window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/cbd9dc11b30147e9a2cc974be655ef7c")); 
+			}
+		// Non-DApp browsers
+		else {
+			console.log('Non-Ethereum browser detected. Please install MetaMask');
+			}
+			
+			});
+			
+			// Smart Contract ABI - Application Binary Interfaces
+				var abi = [
+					{
+						"inputs": [
+							{
+								"internalType": "uint256",
+								"name": "num",
+								"type": "uint256"
+							}
+						],
+						"name": "store",
+						"outputs": [],
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"name": "retreive",
+						"outputs": [
+							{
+								"internalType": "uint256",
+								"name": "",
+								"type": "uint256"
+							}
+						],
+						"stateMutability": "view",
+						"type": "function"
+					}
+				]
+		
+				//Smart Contract Address
+				var contractaddress = '0xb3c65fc8a5b71eb48a8c35c52232d989ca6a8205';
+
+			// Function to call the "Store Function" in Deployed Smart Contract
+			function store() {
+					
+				console.log("Invoking Smart Contracts - Store");
+						
+				//Instantiate and connect to contract address via ABI
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: '0xc6Fea06FdBe2c780Db5bcc155b789D5463f50D62', gasPrice: '5000000', gas: '50000'});
+								
+				var value = document.getElementById("valuetobestored").value;		
+				
+				//call the "store" function
+				var result = myContract.methods.store(value).send(function (err, result) {
+				
+				if (err) { console.log(err); }
+				if (result) { document.getElementById("result").innerHTML = result; }
+				
+				});
+					
+			}
+			
+			// Function to call the "Retreive Function" in Deployed Smart Contract
+			function get() {
+					
+				console.log("Invoking Smart Contracts - Retreival");
+				
+				//Instantiate and connect to contract address via ABI
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: '0xc6Fea06FdBe2c780Db5bcc155b789D5463f50D62', gasPrice: '5000000', gas: '50000'});
+								
+				//call the retrieve function
+				var result = myContract.methods.retreive().call(function (err, result) {
+				
+				if (err) { console.log(err); }
+				if (result) { document.getElementById("fromBC").innerHTML = result;}
+				
+				});
+					
+			}
+    </script>
+	
+	<div class="fixed-footer">
+		<div class="container">
+			<center> <h5> Copyright &copy; 2019-2020 <br/> NamChain - Open Initiative Research Lab </h5> </center>
+		</div>
+	</div>
+
+</body>
+</html>

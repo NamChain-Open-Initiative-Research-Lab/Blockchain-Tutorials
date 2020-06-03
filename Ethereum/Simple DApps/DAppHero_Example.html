@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en">
+ <head>
+   <title>DappHero HTML Generation</title>
+
+   <meta charset="UTF-8" />
+   <meta name="author" content="DappHero" />
+   <meta name="description" content="DappHero" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+ </head>
+
+ <body>
+   <header>
+     <nav>
+       <img
+         alt="Logo"
+         src="//s3.amazonaws.com/appforest_uf/f1580782353653x261239071988881950/noun_Sandwich_3059105.png"
+         height="70"
+       />
+     </nav>
+     <h1>NamChain's Test DApp in DAppHero</h1>
+     <p>
+       <mark
+         >Powered by <a href="https://www.dapphero.io">DappHero.io</a></mark
+       >
+     </p>
+     <p>NamChain's DappHero Example</p>
+     <br />
+     <p>
+       <button data-dh-feature="network" data-dh-property-enable="true">
+         Enable Web3
+       </button>
+     </p>
+   </header>
+   <div>
+     <section><h2>test</h2></section>
+     <header>
+       <section>
+         <section><h2>Public Methods</h2></section>
+         <header>
+           <div
+             data-dh-feature="customContract"
+             data-dh-property-method-id="tMyt"
+             data-dh-property-auto-invoke="true"
+             data-dh-property-contract-name="test"
+             data-dh-property-method-name="retreive"
+           >
+             <h3>Method <mark>"retreive"</mark></h3>
+             <section>
+               <aside>
+                 <div
+                   data-dh-property-method-id="tMyt"
+                   data-dh-property-outputs="true"
+                 >
+                   <pre>Output...</pre>
+                 </div>
+                 <button
+                   data-dh-property-invoke="true"
+                   data-dh-property-method-id="tMyt"
+                 >
+                   retreive
+                 </button>
+               </aside>
+             </section>
+           </div>
+         </header>
+       </section>
+     </header>
+     <header>
+       <section>
+         <section><h2>Transaction Methods</h2></section>
+         <header>
+           <div
+             data-dh-feature="customContract"
+             data-dh-property-method-id="uluB"
+             data-dh-property-auto-invoke="false"
+             data-dh-property-contract-name="test"
+             data-dh-property-method-name="store"
+           >
+             <h3>Method <mark>"store"</mark></h3>
+             <section>
+               <aside>
+                 <section>
+                   Input name: <i>num</i>
+                   <input
+                     type="text"
+                     placeholder="uint256"
+                     data-dh-property-method-id="uluB"
+                     data-dh-property-input-name="num"
+                   />
+                 </section>
+                 <section>
+                   Input name: <i>m1</i>
+                   <input
+                     type="text"
+                     placeholder="uint256"
+                     data-dh-property-method-id="uluB"
+                     data-dh-property-input-name="m1"
+                   />
+                 </section>
+                 <section>
+                   Input name: <i>m2</i>
+                   <input
+                     type="text"
+                     placeholder="uint256"
+                     data-dh-property-method-id="uluB"
+                     data-dh-property-input-name="m2"
+                   />
+                 </section>
+                 <section>
+                   Input name: <i>m3</i>
+                   <input
+                     type="text"
+                     placeholder="uint256"
+                     data-dh-property-method-id="uluB"
+                     data-dh-property-input-name="m3"
+                   />
+                 </section>
+
+                 <button
+                   data-dh-property-invoke="true"
+                   data-dh-property-method-id="uluB"
+                 >
+                   store
+                 </button>
+               </aside>
+             </section>
+           </div>
+         </header>
+       </section>
+     </header>
+   </div>
+   <script
+     id="dh-apiKey"
+     data-api="1591083663771x741938777566740500"
+     src="https://package.dapphero.io/main.js"
+   ></script>
+   <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
+   <style>
+     form {
+       margin: 40px;
+     }
+   </style>
+
+   <script>
+     document.addEventListener(
+       "dappHeroConfigLoaded",
+       ({ detail: dappHero }) => {
+         // Inside here you can listen to any event you want
+         console.log("DappHero Has Loaded!");
+
+         // For projects with auto-invoked method, you will want to filter on events
+         // dappHero.listenToTransactionStatusChange(data => {
+         //   console.log("Listening to transtaction status change", data);
+         // });
+
+         // This is how you can listen to any events your smart contract emits
+         dappHero.listenToSmartContractBlockchainEvent((data) => {
+           console.log("The blockChain Events: ", data);
+         });
+
+         //This is an example method for alerting your users they are on the wrong network
+         //if(window.dappHero.provider.chainId !== 3){
+         //  alert("Wrong network! You should be on ropsten")
+         //}
+       }
+     );
+   </script>
+ </body>
+</html>
