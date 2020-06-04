@@ -80,6 +80,8 @@ Date Updated : 22.05.2020
 
     <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
     <script>	
+	
+	var account;
 	window.addEventListener('load', async () => {
 
 	
@@ -90,8 +92,14 @@ Date Updated : 22.05.2020
 		// Modern DApp browsers
 		if (window.ethereum) {
 			window.web3 = new Web3(ethereum);
+			
+			// To prevent the page reloading when the MetaMask network changes
 			ethereum.autoRefreshOnNetworkChange = false;
-			await ethereum.enable();
+			
+			// To Capture the account details from MetaMask
+			const accounts = await ethereum.enable();
+			account = accounts[0];
+			
 			}
 		// Legacy DApp browsers
 		else if (window.web3) {
@@ -574,7 +582,7 @@ Date Updated : 22.05.2020
 				console.log("Invoking Smart Contracts - Status of RAMCOIN");
 						
 				//Instantiate and connect to contract address via ABI
-				var myContract = new web3.eth.Contract(abi,contractaddress, {from: '0xc6Fea06FdBe2c780Db5bcc155b789D5463f50D62', gasPrice: '5000000', gas: '3000000'});
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '3000000'});
 								
 				//call the "symbol" function
 				var result = myContract.methods.symbol().call(function (err, result) {
@@ -600,7 +608,7 @@ Date Updated : 22.05.2020
 				console.log("Invoking Smart Contracts - Minting RAMCOIN");
 						
 				//Instantiate and connect to contract address via ABI
-				var myContract = new web3.eth.Contract(abi,contractaddress, {from: '0xc6Fea06FdBe2c780Db5bcc155b789D5463f50D62', gasPrice: '5000000', gas: '3000000'});
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '3000000'});
 								
 				var value = document.getElementById("mtokenID").value;		
 				
@@ -620,7 +628,7 @@ Date Updated : 22.05.2020
 				console.log("Invoking Smart Contracts - Burning RAMCOIN");
 				
 				//Instantiate and connect to contract address via ABI
-				var myContract = new web3.eth.Contract(abi,contractaddress, {from: '0xc6Fea06FdBe2c780Db5bcc155b789D5463f50D62', gasPrice: '5000000', gas: '3000000'});
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '3000000'});
 				
 				var value = document.getElementById("btokenID").value;					
 								

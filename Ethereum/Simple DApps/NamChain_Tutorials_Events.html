@@ -65,6 +65,8 @@ Date Updated : 18.05.2020
 
     <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
     <script>	
+	
+	var account;
 	window.addEventListener('load', async () => {
 
 	
@@ -75,8 +77,14 @@ Date Updated : 18.05.2020
 		// Modern DApp browsers
 		if (window.ethereum) {
 			window.web3 = new Web3(ethereum);
+			
+			// To prevent the page reloading when the MetaMask network changes
 			ethereum.autoRefreshOnNetworkChange = false;
-			await ethereum.enable();
+			
+			// To Capture the account details from MetaMask
+			const accounts = await ethereum.enable();
+			account = accounts[0];
+				
 			}
 		// Legacy DApp browsers
 		else if (window.web3) {
@@ -89,6 +97,7 @@ Date Updated : 18.05.2020
 			}
 			
 			});
+			
 			
 		web3 = new Web3(new Web3.providers.WebsocketProvider("wss://ropsten.infura.io/ws/v3/cbd9dc11b30147e9a2cc974be655ef7c"));
 		var id;
@@ -127,7 +136,7 @@ Date Updated : 18.05.2020
 						var contractaddress = '0xe266c99a858aef94edb852709d79bf04771dc74f';
 										
 						//Instantiate and connect to contract address via ABI
-						var myContract = new web3.eth.Contract(abi, contractaddress, {from: '0xc6Fea06FdBe2c780Db5bcc155b789D5463f50D62', gasPrice: '5000000', gas:'3000000'});
+						var myContract = new web3.eth.Contract(abi, contractaddress, {from: account, gasPrice: '5000000', gas:'3000000'});
 												
 						//call the Notification Receive Function in another Contract
 						var result = myContract.methods.receiveHash(hexToString(id)).send(function (err, result) {

@@ -70,6 +70,7 @@ Date Updated : 18.05.2020
 	
 	 <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
      <script>	
+	 var account;
 	 window.addEventListener('load', async () => {
 
 	
@@ -80,8 +81,14 @@ Date Updated : 18.05.2020
 		// Modern DApp browsers
 		if (window.ethereum) {
 			window.web3 = new Web3(ethereum);
+			
+			// To prevent the page reloading when the MetaMask network changes
 			ethereum.autoRefreshOnNetworkChange = false;
-			await ethereum.enable();
+			
+			// To Capture the account details from MetaMask
+			const accounts = await ethereum.enable();
+			account = accounts[0];
+			
 			}
 		// Legacy DApp browsers
 		else if (window.web3) {
