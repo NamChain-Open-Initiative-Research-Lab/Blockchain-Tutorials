@@ -10,17 +10,25 @@ This repository is dedicated to Ethereum Blockchain. Here you can find examples 
 
 ## Prerequisite
 - Knowledge on 
-    - Ethereum Blockchain
-    - Solidity Programming Language
-    - Interplanetary File System (IPFS)
+    - HTML
+    - CSS
+    - JavaScript
     
-- Install
+ - Install
     - Metamask Browser Extension
     - [Test Ethers from Faucet](https://faucet.metamask.io/)
     - [IPFS Companion Browser Extension](https://ipfs.io/)
     - [IPFS Desktop](https://ipfs.io/)
     
-    
+ ## Tutorial Topics
+    - Ethereum Blockchain
+    - Solidity Programming Language
+    - Metamask and Faucet
+    - Web3.js
+    - Interplanetary File System (IPFS)
+    - Tokens (ERC-20, ERC-721, ERC-1155)
+    - Identity Management Standards (ERC-725 and ERC-735)
+      
 ## Ethereum Blockchain
 
 <p align="center">
@@ -37,13 +45,28 @@ Ethereum Blockchain uses **Ethereum Virtual Machine (EVM)** to execute the trans
 
 To program Solidity Smart Contracts, Ethereum provides its own online IDE called [Remix](https://remix.ethereum.org/)
 
-## Metamask 
+## Metamask and Faucet
 
-Metamask is a Browser Extension, is a tool which acts as a bridge for communication between the traditional browser to the blockchain (Distributed Web). Web3.js is used in the User Interface Component to enable communication with the Blockchain via Metamask. More on Metamask is [here](https://namchain.blogspot.com/p/metamask.html).
+**Metamask** is a Browser Extension, is a tool which acts as a bridge for communication between the traditional browser to the blockchain (Distributed Web). Web3.js is used in the User Interface Component to enable communication with the Blockchain via Metamask. More on Metamask is [here](https://namchain.blogspot.com/p/metamask.html).
 
 <p align="center">
 <img src="https://metamask.io/images/mm-logo.svg" width="200" align="center">
 </p>  
+
+**Faucet** is a developer support system which provides the Ether for development and testing purposes to our wallet address.
+
+## Web3.js
+
+**Web3.js** is a collection of javascript libraries which enables communication with local or remote Ethereum using HTTP or RPC communication.
+
+## IPFS
+
+**Interplanetary File System** is a protocol and a peer-to-peer file sharing and storage distributed network. IPFS is a content-addressed system, where a file is identified by its hash. IPFS complements the Blockchain for storage. 
+
+## Tokens 
+    - ERC-20 - Fungible Tokens
+    - ERC-721 - Non-Fungible Tokens (NFT)
+    - ERC-1155 - Multi-Token 
 
 ## Examples
 
