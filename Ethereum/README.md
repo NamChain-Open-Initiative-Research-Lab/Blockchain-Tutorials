@@ -21,13 +21,13 @@ This repository is dedicated to Ethereum Blockchain. Here you can find examples 
     - [IPFS Desktop](https://ipfs.io/)
     
  ## Tutorial Topics
-    - Ethereum Blockchain
-    - Solidity Programming Language
-    - Metamask and Faucet
-    - Web3.js
-    - Interplanetary File System (IPFS)
-    - Tokens (ERC-20, ERC-721, ERC-1155)
-    - Identity Management Standards (ERC-725 and ERC-735)
+  - Ethereum Blockchain
+  - Solidity Programming Language
+  - Metamask and Faucet
+  - Web3.js
+  - Interplanetary File System (IPFS)
+  - Tokens (ERC-20, ERC-721, ERC-1155)
+  - Identity Management Standards (ERC-725 and ERC-735)
       
 ## Ethereum Blockchain
 
@@ -43,7 +43,57 @@ Ethereum Blockchain uses **Ethereum Virtual Machine (EVM)** to execute the trans
 
 **Solidity** is the dedicated programming language for development of Smart Contracts on Ethereum Blockchain. Solidity is similar to Object Oriented Programming Language. ***Contract*** is the main component in the solidity programming which is similar to ***Class*** in Java. Like, Java, the solidity program on compilation is converted into bytecode for execution in EVM. 
 
-To program Solidity Smart Contracts, Ethereum provides its own online IDE called [Remix](https://remix.ethereum.org/)
+To program Solidity Smart Contracts, Ethereum provides its own online IDE called [Remix](https://remix.ethereum.org/) 
+
+```
+pragma solidity >=0.4.22 <0.7.0;
+
+/**
+ * @title Solidity Template
+ * @dev Solidity Template
+ * @author Ramaguru Radhakrishnan
+ */
+ contract <<contractName>> {
+
+    uint64 intvar;
+    uint128 intvar;
+    uint256 intvar;
+    
+    string  stringvar;
+    
+    address addressvar;
+    
+    struct structvar {
+        
+        uint256 structvar1;
+        string  structvar2;
+    }
+    
+    structvar varstruct;
+    
+    /** Constructor */
+    constructor() {}
+    
+    /**
+     * @dev Example Function to perform operation and store
+     * @param num value to store
+     */
+    function <<functionName>>(paramaters) public {
+        // do function operations
+    }
+    
+     /**
+     * @dev Example Function to return values
+     * @param num value to store
+     */
+    function <<functionName1>>() public view returns(datatypes) {
+        return (variables);
+    }
+
+}
+
+
+```
 
 ## Metamask and Faucet
 
@@ -57,21 +107,78 @@ To program Solidity Smart Contracts, Ethereum provides its own online IDE called
 
 ## Web3.js
 
-**Web3.js** is a collection of javascript libraries which enables communication with local or remote Ethereum using HTTP or RPC communication.
+**Web3.js** is a collection of javascript libraries which enables communication with local or remote Ethereum using HTTP or RPC communication. 
+
+Below Web3.js code should be included in your HTML page to detect and define the Web3 Communication.
+
+```
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
+    <script>	
+	
+	var account;
+	window.addEventListener('load', async () => {
+
+	
+		if (typeof window.ethereum !== 'undefined') { 
+			console.log("MetaMask is Available :) !"); 
+			}
+			
+		// Modern DApp browsers
+		if (window.ethereum) {
+			window.web3 = new Web3(ethereum);
+			
+			// To prevent the page reloading when the MetaMask network changes
+			ethereum.autoRefreshOnNetworkChange = false;
+			
+			// To Capture the account details from MetaMask
+			const accounts = await ethereum.enable();
+			account = accounts[0];
+				
+			}
+		// Legacy DApp browsers
+		else if (window.web3) {
+			//window.web3 = new Web3(web3.currentProvider);
+			window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/cbd9dc11b30147e9a2cc974be655ef7c")); 
+			}
+		// Non-DApp browsers
+		else {
+			console.log('Non-Ethereum browser detected. Please install MetaMask');
+			}
+			
+			});
+    </script>			
+
+```
 
 ## IPFS
 
 **Interplanetary File System** is a protocol and a peer-to-peer file sharing and storage distributed network. IPFS is a content-addressed system, where a file is identified by its hash. IPFS complements the Blockchain for storage. 
 
+<p align="center">
+<img src="https://docs.ipfs.io/images/ipfs-logo.svg" width="100" align="center">
+</p>  
+
+
+
 ## Tokens 
-    - ERC-20 - Fungible Tokens
-    - ERC-721 - Non-Fungible Tokens (NFT)
-    - ERC-1155 - Multi-Token 
+- ERC-20 - Fungible Tokens
+- [ERC-721](http://erc721.org/) - Non-Fungible Tokens (NFT)
+    - [Cryptokitties](https://www.cryptokitties.co/)
+- ERC-1155 - Multi-Token 
 
 ## Examples
 
 - MetaMask Connection
    - [DApp](Simple%20DApps/NamChain_Tutorials_Metamask_Connection.html)
+   
+- Fixed DataType 
+    - [FixedDataTypes.sol](https://ipfs.io/ipfs/QmVNUwqQSVBzUPhctxMaN9KtGN2vwMSCeVmHrT7b59VvZD)
+   
+- String Operations 
+    - [Strings.sol](https://ipfs.io/ipfs/QmbXGErA1yKc6iE86wnty17uPBaknGLDVRMEHq3uZerujg)
+    
+- Address Operations
+    - [Address.sol](https://ipfs.io/ipfs/QmeAZyziifLrozsX5daKGGNeCdXStS9HbBVToruwDaXuwW)
 
 - Storage and Retrieval
     - [DApp](Simple%20DApps/NamChain_Tutorials_Storage_Smart_Contract.html)
@@ -98,7 +205,7 @@ To program Solidity Smart Contracts, Ethereum provides its own online IDE called
         - [Contract Link](https://ropsten.etherscan.io/address/0xe266c99a858aef94edb852709d79bf04771dc74f)
   
   - Access Modifiers
-    - [Access.sol](https://ipfs.io/ipfs/QmXUnabQ5YkSrCu613xmwrpSC5MxSuPCgVdZXNb9JFAACz)
+    - [Access.sol](https://ipfs.io/ipfs/QmbmBgx8et5a9N5Q9DrQvsvXbQmbSpBMcrYZS3Y4SQRErE)
         - [Contract Link](https://ropsten.etherscan.io/address/0xef24ce272e971b7771c7ed5f16001295d5570932)
         
   - ERC721 NFT - RAMCoin     
@@ -107,11 +214,11 @@ To program Solidity Smart Contracts, Ethereum provides its own online IDE called
         - [Contract Link](https://ropsten.etherscan.io/address/0xecff6e3fdf43146ae8e5a093a82b922777218807)
         - [NFT Token Tracker](https://ropsten.etherscan.io/address/0xecff6e3fdf43146ae8e5a093a82b922777218807)
 
-- One Click DApp 
+- <b>One Click DApp</b> <br/>
     One Click DApp is a 3rd party service which generates a UI which can be accessed using a public link.
     - [Store and Retrieve](https://oneclickdapp.com/learn-unit/)
 
-- DApp Hero 
+- <b>DApp Hero</b> <br/> 
     DApp Hero is a 3rd party service which generates HTML page / Website based on your Smart Contract, enabling the developer in quick       DApp creation.
     - [Store and Retrieve](Simple%20DApps/DAppHero_Example.html)
 
