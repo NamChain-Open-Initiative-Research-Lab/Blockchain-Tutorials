@@ -187,11 +187,26 @@ Below Web3.js code should be included in your HTML page to detect and define the
     
 - **Address Operations**
     - [Address.sol](https://ipfs.io/ipfs/QmeAZyziifLrozsX5daKGGNeCdXStS9HbBVToruwDaXuwW)
+    
+ - **Mapping**
+    - [Registry.sol](https://ipfs.io/ipfs/Qmd73HXiwnhCsGZ7uqoT1QaUeikSg6j4A6fUdb5KGAKyMT)
+        - [Contract Link](https://ropsten.etherscan.io/address/0x13248d484eecb610cad3e9e03f8e7b8d477193b2)
+    - [Registry_Project.sol](https://ipfs.io/ipfs/QmPyLAAi5VXx7CmBjJQPojkshMNkbeRw1YAtUMQwCuUTid)
+        - [Contract Link](https://ropsten.etherscan.io/address/0xce2b4087cec369d9ec2dfdece9296b36134ff4bb)    
+	
+  - **Access Modifiers**
+    - [Access.sol](https://ipfs.io/ipfs/QmbmBgx8et5a9N5Q9DrQvsvXbQmbSpBMcrYZS3Y4SQRErE)
+        - [Contract Link](https://ropsten.etherscan.io/address/0xef24ce272e971b7771c7ed5f16001295d5570932)	
 
 - **Storage and Retrieval**
     - [DApp](Simple%20DApps/NamChain_Tutorials_Storage_Smart_Contract.html)
     - Storage.sol - Refer remix.ethereum.org
         - [Contract Link](https://ropsten.etherscan.io/address/0xb3c65fc8a5b71eb48a8c35c52232d989ca6a8205)
+	
+- **Class Room**
+    - [DApp](Simple%20DApps/NamChain_Tutorials_Class_Room.html)
+    - [class.sol](https://ipfs.io/ipfs/QmWu72jUh9ZV2tT2tr5GhU7yinY1Q1c4NCSePGC6kqLrnA)
+    	- [Contract Link](https://ropsten.etherscan.io/address/0xb72b5e4d4be833dffe7b51a1435c15fbbf193c0f)
 
 - **Money Transfer**
     - [Sender.sol](https://ipfs.io/ipfs/Qmf3Wd2jvt15TVycq65h7JobHuqoyzQ9E4MZJLNtshzbZR)
@@ -199,23 +214,13 @@ Below Web3.js code should be included in your HTML page to detect and define the
     - [Receiver.sol](https://ipfs.io/ipfs/QmaXQ5WFn12q7cXCRQyVV3XuBpkhZuPWHB66BLcgX7LVtY)
         - [Contract Link](https://ropsten.etherscan.io/address/0xf5dc36a0eeec4909f3e09cfdc9b29e2343a1c73c)
   
- - **Registry**
-    - [Registry.sol](https://ipfs.io/ipfs/Qmd73HXiwnhCsGZ7uqoT1QaUeikSg6j4A6fUdb5KGAKyMT)
-        - [Contract Link](https://ropsten.etherscan.io/address/0x13248d484eecb610cad3e9e03f8e7b8d477193b2)
-    - [Registry_Project.sol](https://ipfs.io/ipfs/QmPyLAAi5VXx7CmBjJQPojkshMNkbeRw1YAtUMQwCuUTid)
-        - [Contract Link](https://ropsten.etherscan.io/address/0xce2b4087cec369d9ec2dfdece9296b36134ff4bb)
-        
   - **Events and Notification**
     - [DApp](Simple%20DApps/NamChain_Tutorials_Events.html)
     - [Events.sol](https://ipfs.io/ipfs/QmTFCP8uyL4UFqUQqH9PsQYJhpxtLsHoA6pP5ZQMyAkaCp)
         - [Contract Link](https://ropsten.etherscan.io/address/0x7d35606eacac8652f2a38c5a52128100e6545871)
     - [NotificationReceiver.sol](https://ipfs.io/ipfs/QmbiMjH9UZi8yYoDG5J5V8Vz7CKUD9d5K4rCUR8H92Z1Q4)
         - [Contract Link](https://ropsten.etherscan.io/address/0xe266c99a858aef94edb852709d79bf04771dc74f)
-  
-  - **Access Modifiers**
-    - [Access.sol](https://ipfs.io/ipfs/QmbmBgx8et5a9N5Q9DrQvsvXbQmbSpBMcrYZS3Y4SQRErE)
-        - [Contract Link](https://ropsten.etherscan.io/address/0xef24ce272e971b7771c7ed5f16001295d5570932)
-        
+          
   - **ERC721 NFT - RAMCoin**     
     - [DApp](Simple%20DApps/NamChain_Tutorials_RAM_ERC721_Token.html) 
     - [MyERC721Token.sol](https://ipfs.io/ipfs/QmaCKsKDWMK8nmip51YCBgaUakU6zErwBnM6i8NdgPhdna)
