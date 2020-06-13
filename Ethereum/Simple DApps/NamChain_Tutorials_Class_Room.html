@@ -1,0 +1,305 @@
+<!-- 
+Author       : Ramaguru Radhakrishnan
+Date Updated : 18.05.2020
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" href="https://1.bp.blogspot.com/-0SArWfduw68/XkxV8EmBBcI/AAAAAAAAABw/h9aWSWbm0J4kilgn3xddzQ3PdoP-e3RZgCLcBGAsYHQ/s1600/SAVE_20200127_132431.jpg" type="image/jpg" sizes="16x16">
+    <title>NamChain Tutorials - Class Room</title>
+    <meta charset="UTF-8"/>
+	<style>
+	body{        
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+	.container{
+        width: 80%;
+        margin: 0 auto; 
+    }
+	.fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #051F67;
+        padding: 10px 0;
+        color:#E2E0F8;
+    }
+	.fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    } 
+	.container p{
+		padding-top: 80px;
+        line-height: 20px;
+    }
+	
+	</style>
+</head>
+<body>
+	<div class="fixed-header">
+		<div class="container">
+		<center>
+			<h1> <image src="https://1.bp.blogspot.com/-0SArWfduw68/XkxV8EmBBcI/AAAAAAAAABw/h9aWSWbm0J4kilgn3xddzQ3PdoP-e3RZgCLcBGAsYHQ/s1600/SAVE_20200127_132431.jpg" type="image/jpg" width="25px" height="25px"> NamChain Tutorials </h1>
+			<h4> Class Room</h4> 
+		</center>
+		</div>
+	</div>
+        
+	<div class="container">	
+	<p>	 <b><u>Description:</u></b> <br/>
+		 Demonstrates the storage of ClassRoom - Students Mark Details and Retrieval<br/>
+		
+	<hr>
+		<b><u>Mark Submission</u></b> <br/><br/>
+		<table>
+			 <tr><td> Enter the Roll Number : </td> <td> <input type="text" id="rollno" name="rollno"> </td></tr>
+			 <tr><td> Enter the Name : </td> <td> <input type="text" id="name" name="name"> </td></tr>
+			 <tr><td> Mark Details </td></tr>
+			 <tr><td> Tamil : </td> <td> <input type="text" id="tamil" name="tamil"> </td></tr>
+			 <tr><td> English : </td> <td> <input type="text" id="english" name="english"> </td></tr>
+			 <tr><td> Maths : </td> <td> <input type="text" id="maths" name="maths"> </td></tr>
+			 <tr><td> Science : </td> <td> <input type="text" id="science" name="science"> </td></tr>
+			 <tr><td> Social : </td> <td> <input type="text" id="social" name="social"> </td></tr>
+			 <tr><td><input type="button" onclick="add_marks()" value="Add Details"> </td></tr>
+			</table>
+			
+			<h4> Transaction ID: <a href="https://ropsten.etherscan.io/"><div id="result"></div></a> </h4>
+			
+		</form>
+		<br/><br/>
+	<hr> 
+		<b><u>Display Details</u></b> <br/><br/>
+		<form>
+			Enter the Roll Number : <input type="text" id="rollnog" name="rollnog"> 
+			<input type="button" onclick="get_details()" value="Display"> <br/>
+			 <tr><td> Name : </td> <td> <b><div id="nameg"></div></b> </td></tr>
+			 <tr><td> Mark Details </td></tr>
+			 <tr><td> Tamil : </td> <td> <b><div id="tamilg"></div></b> </td></tr>
+			 <tr><td> English : </td> <td> <b><div id="englishg"></div></b> </td></tr>
+			 <tr><td> Maths : </td> <td> <b><div id="mathsg"></div></b> </td></tr>
+			 <tr><td> Science : </td> <td> <b><div id="scig"></div></b> </td></tr>
+			 <tr><td> Social : </td> <td> <b><div id="socg"></div></b> </td></tr>
+			 <tr><td> Total : </td> <td> <b><div id="tot"></div></b> </td></tr>
+			 <tr><td> Average : </td> <td> <b><div id="avg"></div></b> </td></tr>
+		</form>
+	<hr>	
+	</p>	
+	</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
+    <script>	
+	
+	var account;
+	window.addEventListener('load', async () => {
+
+	
+		if (typeof window.ethereum !== 'undefined') { 
+			console.log("MetaMask is Available :) !"); 
+			}
+			
+		// Modern DApp browsers
+		if (window.ethereum) {
+			window.web3 = new Web3(ethereum);
+			
+			// To prevent the page reloading when the MetaMask network changes
+			ethereum.autoRefreshOnNetworkChange = false;
+			
+			// To Capture the account details from MetaMask
+			const accounts = await ethereum.enable();
+			account = accounts[0];
+			
+			}
+		// Legacy DApp browsers
+		else if (window.web3) {
+			//window.web3 = new Web3(web3.currentProvider);
+			window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/cbd9dc11b30147e9a2cc974be655ef7c")); 
+			}
+		// Non-DApp browsers
+		else {
+			console.log('Non-Ethereum browser detected. Please install MetaMask');
+			}
+			
+			});
+			
+			// Smart Contract ABI - Application Binary Interfaces
+				var abi = [
+					{
+						"constant": false,
+						"inputs": [
+							{
+								"name": "_rollno",
+								"type": "uint256"
+							},
+							{
+								"name": "_name",
+								"type": "string"
+							},
+							{
+								"name": "_mark1",
+								"type": "uint256"
+							},
+							{
+								"name": "_mark2",
+								"type": "uint256"
+							},
+							{
+								"name": "_mark3",
+								"type": "uint256"
+							},
+							{
+								"name": "_mark4",
+								"type": "uint256"
+							},
+							{
+								"name": "_mark5",
+								"type": "uint256"
+							}
+						],
+						"name": "setdetails",
+						"outputs": [],
+						"payable": false,
+						"stateMutability": "nonpayable",
+						"type": "function"
+					},
+					{
+						"inputs": [],
+						"payable": false,
+						"stateMutability": "nonpayable",
+						"type": "constructor"
+					},
+					{
+						"constant": true,
+						"inputs": [
+							{
+								"name": "_rollno",
+								"type": "uint256"
+							}
+						],
+						"name": "getdetails",
+						"outputs": [
+							{
+								"name": "",
+								"type": "string"
+							},
+							{
+								"name": "",
+								"type": "uint256"
+							},
+							{
+								"name": "",
+								"type": "uint256"
+							},
+							{
+								"name": "",
+								"type": "uint256"
+							},
+							{
+								"name": "",
+								"type": "uint256"
+							},
+							{
+								"name": "",
+								"type": "uint256"
+							},
+							{
+								"name": "",
+								"type": "uint256"
+							},
+							{
+								"name": "",
+								"type": "uint256"
+							}
+						],
+						"payable": false,
+						"stateMutability": "view",
+						"type": "function"
+					},
+					{
+						"constant": true,
+						"inputs": [],
+						"name": "returntStudents",
+						"outputs": [
+							{
+								"name": "",
+								"type": "uint256"
+							}
+						],
+						"payable": false,
+						"stateMutability": "view",
+						"type": "function"
+					}
+				]
+		
+				//Smart Contract Address
+				var contractaddress = '0xb72B5E4d4BE833dffe7B51a1435c15FbBF193c0F';
+				
+
+			// Function to call the "setdetails Function" in Deployed Smart Contract
+			function add_marks() {
+					
+				console.log("Invoking Smart Contracts - Store Student Details");
+						
+				//Instantiate and connect to contract address via ABI
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '50000'});
+								
+				var rollno = document.getElementById("rollno").value;		
+				var name = document.getElementById("name").value;	
+				var mark1 = document.getElementById("tamil").value;	
+				var mark2 = document.getElementById("english").value;	
+				var mark3 = document.getElementById("maths").value;	
+				var mark4 = document.getElementById("science").value;	
+				var mark5 = document.getElementById("social").value;	
+				
+				//call the "setdetails" function
+				var result = myContract.methods.setdetails(rollno, name, mark1, mark2, mark3, mark4, mark5).send(function (err, result) {
+				
+				if (err) { console.log(err); }
+				if (result) { document.getElementById("result").innerHTML = result; }
+				
+				});
+					
+			}
+			
+			// Function to call the "getdetails Function" in Deployed Smart Contract
+			function get_details() {
+					
+				console.log("Invoking Smart Contracts - Get Student Details");
+				
+				//Instantiate and connect to contract address via ABI
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '50000'});
+				
+				var rollno = document.getElementById("rollnog").value;
+								
+				//call the retrieve function
+				var result = myContract.methods.getdetails(rollno).call(function (err, result) {
+				
+				if (err) { console.log(err); }
+				if (result) { 
+					
+					document.getElementById("nameg").innerHTML = result[0];
+					document.getElementById("tamilg").innerHTML = result[1];
+					document.getElementById("englishg").innerHTML = result[2];
+					document.getElementById("mathsg").innerHTML = result[3];
+					document.getElementById("scig").innerHTML = result[4];
+					document.getElementById("socg").innerHTML = result[5];
+					document.getElementById("tot").innerHTML = result[6];
+					document.getElementById("avg").innerHTML = result[7];
+					
+					}
+				
+				});
+					
+			}
+    </script>
+	
+	<div class="fixed-footer">
+		<div class="container">
+			<center> <h5> Copyright &copy; 2019-2020 <br/> NamChain - Open Initiative Research Lab </h5> </center>
+		</div>
+	</div>
+
+</body>
+</html>
