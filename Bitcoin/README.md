@@ -8,10 +8,33 @@ This repository is dedicated to Blockchain Tutorials on Bitcoin Blockchain. Here
 - Knowledge on 
     - Bitcoin Blockchain
     - Bitcoin Scripting
+    
+ - Install
+    - Bitcoin Core (Full Node)
+    - Electrum Wallet (Simple Node)
+    
+## Tutorial Topics
+  - Bitcoin Blockchain Overview
+  - Bitcoin Core
+  - Bitcoin Faucet
+  - Electrum Wallet 
+  - Scripting
           
 ## Bitcoin Blockchain
 
 Bitcoin is the first generation Blockchain Technology which is the first **Cryptocurrency**.  The native cryptocurrency of the Bitcoin Blockchain is also called as **"Bitcoin (BTC)"**. Bitcoin uses CPU based Proof-of-Work (PoW) consensus algorithm. 
+
+## Bitcoin Core 
+
+Bitcoin Core is Bitcoin's Full Node Client. On installing and opening the Bitcoin core, the client tries to sync the complete Blockchain from Genesis Block till the present block to the system. Bitcoin Core can be connected to Mainnet and Testnet.
+
+## Bitcoin Faucet  
+
+Bitcoin Faucet is a service to get Test Bitcoins for development and testing purpose. [Click Here](https://testnet-faucet.mempool.co/) to get Test Bitcoins.
+
+## Electrum Wallet  
+
+Electrum is a simple Bitcoin wallet from a 3rd party. Electrum like Bitcoin core can connect to Mainnet and Testnet.
 
 ## Scripting
 
