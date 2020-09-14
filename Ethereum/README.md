@@ -29,6 +29,7 @@ This repository is dedicated to Ethereum Blockchain. Here you can find examples 
   - Interplanetary File System (IPFS)
   - CryptoTokens (ERC-20, ERC-721, ERC-1155)
   - Identity Management Standards (ERC-725 and ERC-735)
+  - Oracles 
       
 ## Ethereum Blockchain Overview
 
@@ -166,13 +167,30 @@ Below Web3.js code should be included in your HTML page to detect and define the
 <img src="https://docs.ipfs.io/images/ipfs-logo.svg" width="100" align="center">
 </p>  
 
-## Tokens 
+## CryptoTokens 
 - ERC-20 - Fungible Tokens
 - [ERC-721](http://erc721.org/) - Non-Fungible Tokens (NFT)
     - [Cryptokitties](https://www.cryptokitties.co/)
 - ERC-1155 - Multi-Token 
 
 **ERC - Ethereum Request for Comments** is a standard within Ethereum Blockchain similar to RFC's for Internet Engineering Task Force (IETF).
+
+## Identity Management 
+Identity Managment is one of the major challenges faced across the globe and in various application domain. Ethereum proposed two standards for Identity Management (ERC-725) and Claim verification (ERC-735). 
+
+- ERC-725 supports Self-Soverign Identity could describe a human, a group or organisation, machine, real-world objects. These are simply a proxy smart contract controlled by multiple keys and smart contracts. The advantage is the user manages their own identity.
+- ERC-735 is a associated standard for ERC-725 which allows to add or remove claim about an ERC-725 identity.
+
+## Oracles
+
+**Oracles** are third-party services available for smart contracts to get external information like prices, weather details, stock market details, etc., for processing and decision making. **Provable** is one of the leading oracle service provider for different blockchains including Ethereum, EOS, R3 Corda, Hyperledger Fabric. There are different datasources available, from which we can request information from any as needed.
+	
+	- URL 
+	- random
+	- computation
+	- IPFS
+	- WolframAlpha
+	
 
 ## Examples
 
@@ -228,11 +246,13 @@ Below Web3.js code should be included in your HTML page to detect and define the
         - [NFT Token Tracker](https://ropsten.etherscan.io/address/0xecff6e3fdf43146ae8e5a093a82b922777218807)
 
 - <b>One Click DApp</b> <br/>
-    One Click DApp is a 3rd party service which generates a UI which can be accessed using a public link.
+    One Click DApp is a 3rd party service which generates a UI which can be accessed using a public link. 
     - [Store and Retrieve](https://oneclickdapp.com/learn-unit/)
+    
+    Note: One Click DApp is available as a plugin in RemixIDE.
 
 - <b>DApp Hero</b> <br/> 
-    DApp Hero is a 3rd party service which generates HTML page / Website based on your Smart Contract, enabling the developer in quick       DApp creation.
+    DApp Hero is a 3rd party service which generates HTML page / Website based on your Smart Contract, enabling the developer in quick DApp creation.
     - [Store and Retrieve](Simple%20DApps/DAppHero_Example.html)
 
 # License
