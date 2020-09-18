@@ -1,4 +1,4 @@
-# NamChain - Open Initiative Research Lab ![](https://img.shields.io/badge/Project-Nam-ff69b4.svg) ![](https://img.shields.io/badge/madeby-Ramaguru-blue.svg)
+# நம்Chain - Open Initiative Research Lab ![](https://img.shields.io/badge/Project-Nam-ff69b4.svg) ![](https://img.shields.io/badge/madeby-Ramaguru-blue.svg)
 
 <p align="center">
 <img src="https://1.bp.blogspot.com/-0SArWfduw68/XkxV8EmBBcI/AAAAAAAAABw/h9aWSWbm0J4kilgn3xddzQ3PdoP-e3RZgCLcBGAsYHQ/s1600/SAVE_20200127_132431.jpg" width="200" align="center">
@@ -6,7 +6,7 @@
 
 ## Ethereum Blockchain Tutorials
 
-This repository is dedicated to Ethereum Blockchain. Here you can find examples related to Smart Contracts and DApps.
+A Repository dedicated to Ethereum Blockchain Tutorials.
 
 ## Prerequisite
 - Knowledge on 
@@ -232,7 +232,7 @@ Identity Managment is one of the major challenges faced across the globe and in 
     - [Receiver.sol](https://ipfs.io/ipfs/QmaXQ5WFn12q7cXCRQyVV3XuBpkhZuPWHB66BLcgX7LVtY)
         - [Contract Link](https://ropsten.etherscan.io/address/0xf5dc36a0eeec4909f3e09cfdc9b29e2343a1c73c)
   
-  - **Events and Notification**
+ - **Events and Notification**
     - [DApp](Simple%20DApps/NamChain_Tutorials_Events.html)
     - [Events.sol](https://ipfs.io/ipfs/QmTFCP8uyL4UFqUQqH9PsQYJhpxtLsHoA6pP5ZQMyAkaCp)
         - [Contract Link](https://ropsten.etherscan.io/address/0x7d35606eacac8652f2a38c5a52128100e6545871)
@@ -257,4 +257,4 @@ Identity Managment is one of the major challenges faced across the globe and in 
 
 # License
 
-[MIT](https://github.com/ramagururadhakrishnan/NamChain/blob/master/MIT)
+MIT
