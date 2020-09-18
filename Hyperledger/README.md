@@ -1,12 +1,12 @@
-# NamChain ![](https://img.shields.io/badge/Project-Nam-ff69b4.svg) ![](https://img.shields.io/badge/madeby-Ramaguru-blue.svg)
+# நம்Chain - Open Initiative Research Lab ![](https://img.shields.io/badge/Project-Nam-ff69b4.svg) ![](https://img.shields.io/badge/madeby-Ramaguru-blue.svg)
 
-## Welcome to Blockchain Tutorials
+## Welcome to Hyperledger Tutorials
 
-This repository is dedicated to Blockchain Tutorials on Hyperledger Projects. Here you can find examples related to scripts.
+A Repository dedicated to Hyperledger Projects.
 
 ## Prerequisite
 - Knowledge on 
-    - Hyperledger Projects
+    - Blockchain Basics 
     - Go Language
     
  - Install
@@ -14,8 +14,11 @@ This repository is dedicated to Blockchain Tutorials on Hyperledger Projects. He
     
 ## Tutorial Topics
   - Hyperledger Project Overview
+  - Hyperledger Design Principles
+  - Hyperledger Libraries
+  - Hyperledger Tools
+  - Hyperledger DLTs
     
-
 # License
 
-[MIT](https://github.com/ramagururadhakrishnan/NamChain/blob/master/MIT)
+MIT
