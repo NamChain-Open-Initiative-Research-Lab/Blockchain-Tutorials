@@ -1,19 +1,18 @@
-# NamChain ![](https://img.shields.io/badge/Project-Nam-ff69b4.svg) ![](https://img.shields.io/badge/madeby-Ramaguru-blue.svg)
+# நம்Chain - Open Initiative Research Lab ![](https://img.shields.io/badge/Project-Nam-ff69b4.svg) ![](https://img.shields.io/badge/madeby-Ramaguru-blue.svg)
 
-## Welcome to Blockchain Tutorials
+## Welcome to Corda Tutorials
 
-This repository is dedicated to Blockchain Tutorials on Corda Blockchain. Here you can find examples related to scripts.
+A Repository dedicated to Corda Blockchain Tutorials.
 
 ## Prerequisite
 - Knowledge on 
-    - Corda Blockchain
-    - Bitcoin Scripting
+    - Blockchain Basics
+    - Bitcoin Blockchain Basics
     
 ## Tutorial Topics
   - Corda Blockchain Overview
   - CorDApps
           
-
 # License
 
-[MIT](https://github.com/ramagururadhakrishnan/NamChain/blob/master/MIT)
+MIT
