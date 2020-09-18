@@ -1,13 +1,12 @@
-# NamChain ![](https://img.shields.io/badge/Project-Nam-ff69b4.svg) ![](https://img.shields.io/badge/madeby-Ramaguru-blue.svg)
+# நம்Chain - Open Initiative Research Lab ![](https://img.shields.io/badge/Project-Nam-ff69b4.svg) ![](https://img.shields.io/badge/madeby-Ramaguru-blue.svg)
 
-## Welcome to Blockchain Tutorials
+## Welcome to Bitcoin Tutorials
 
-This repository is dedicated to Blockchain Tutorials on Bitcoin Blockchain. Here you can find examples related to scripts.
+A Repository dedicated to Bitcoin Blockchain Tutorials.
 
 ## Prerequisite
 - Knowledge on 
-    - Bitcoin Blockchain
-    - Bitcoin Scripting
+    - Blockchain Basics
     
  - Install
     - Bitcoin Core (Full Node)
@@ -15,14 +14,24 @@ This repository is dedicated to Blockchain Tutorials on Bitcoin Blockchain. Here
     
 ## Tutorial Topics
   - Bitcoin Blockchain Overview
-  - Bitcoin Core
+  - Transaction Life Cycle
+  - Proof of Work (PoW)
+  - Cryptowallet
+  - Bitcoin Core Installation and usage
   - Bitcoin Faucet
-  - Electrum Wallet 
-  - Scripting
+  - Electrum Wallet Installation and usage
+  - Bitcoin Script
           
 ## Bitcoin Blockchain
 
 Bitcoin is the first generation Blockchain Technology which is the first **Cryptocurrency**.  The native cryptocurrency of the Bitcoin Blockchain is also called as **"Bitcoin (BTC)"**. Bitcoin uses CPU based Proof-of-Work (PoW) consensus algorithm. 
+
+## Transaction Life Cycle
+
+## Proof of Work
+
+## Cryptowallet
+A Crypto Wallet is a device, physical medium, program or service which stores the public and/or private keys that can be used to track ownership & transactions, receive & send cryptocurrencies within a distributed network like Blockchain. [Click here](https://namchain.blogspot.com/p/crypto-wallets.html) to read more.
 
 ## Bitcoin Core 
 
@@ -44,4 +53,4 @@ Try the [Bitcoin Script Simulator](https://siminchen.github.io/bitcoinIDE/build/
 
 # License
 
-[MIT](https://github.com/ramagururadhakrishnan/NamChain/blob/master/MIT)
+MIT
