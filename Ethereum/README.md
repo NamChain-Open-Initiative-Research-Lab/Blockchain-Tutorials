@@ -178,8 +178,8 @@ Below Web3.js code should be included in your HTML page to detect and define the
 ## Identity Management 
 Identity Managment is one of the major challenges faced across the globe and in various application domain. Ethereum proposed two standards for Identity Management (ERC-725) and Claim verification (ERC-735). 
 
-- ERC-725 supports Self-Soverign Identity could describe a human, a group or organisation, machine, real-world objects. These are simply a proxy smart contract controlled by multiple keys and smart contracts. The advantage is the user manages their own identity.
-- ERC-735 is a associated standard for ERC-725 which allows to add or remove claim about an ERC-725 identity.
+- **ERC-725** supports Self-Soverign Identity could describe a human, a group or organisation, machine, real-world objects. These are simply a proxy smart contract controlled by multiple keys and smart contracts. The advantage is the user manages their own identity.
+- **ERC-735** is a associated standard for ERC-725 which allows to add or remove claim about an ERC-725 identity.
 
 ## Oracles
 
