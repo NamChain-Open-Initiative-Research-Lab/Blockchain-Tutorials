@@ -1,6 +1,10 @@
 # நம்Chain - Open Initiative Research Lab ![](https://img.shields.io/badge/Project-Nam-ff69b4.svg) ![](https://img.shields.io/badge/madeby-Ramaguru-blue.svg)
 
-## Welcome to Bitcoin Tutorials
+<p align="center">
+<img src="https://1.bp.blogspot.com/-0SArWfduw68/XkxV8EmBBcI/AAAAAAAAABw/h9aWSWbm0J4kilgn3xddzQ3PdoP-e3RZgCLcBGAsYHQ/s1600/SAVE_20200127_132431.jpg" width="200" align="center">
+</p>  
+
+## Bitcoin Blockchain Tutorials
 
 A Repository dedicated to Bitcoin Blockchain Tutorials.
 
@@ -22,7 +26,11 @@ A Repository dedicated to Bitcoin Blockchain Tutorials.
   - Electrum Wallet Installation and usage
   - Bitcoin Script
           
-## Bitcoin Blockchain
+## Bitcoin Blockchain Overview
+
+<p align="center">
+<img src="https://bitcoin.org/img/icons/logotop.svg?1601241030" width="400" align="center">
+</p>  
 
 Bitcoin is the first generation Blockchain Technology which is the first **Cryptocurrency**.  The native cryptocurrency of the Bitcoin Blockchain is also called as **"Bitcoin (BTC)"**. Bitcoin uses CPU based Proof-of-Work (PoW) consensus algorithm. 
 
