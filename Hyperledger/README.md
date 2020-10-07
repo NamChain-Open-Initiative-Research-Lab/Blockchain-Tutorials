@@ -19,9 +19,9 @@ A Repository dedicated to Hyperledger Projects Tutorials.
 ## Tutorial Topics
   - Hyperledger Project Overview
   - Hyperledger Design Principles
-  - Hyperledger Libraries
-  - Hyperledger Tools
-  - Hyperledger DLTs
+  - [Hyperledger Libraries](#hyperledger-libraries)
+  - [Hyperledger Tools](#hyperledger-tools)
+  - [Hyperledger DLTs](#hyperledger-dlts)
   
 ## Hyperledger Project Overview
 
@@ -118,6 +118,3 @@ A Repository dedicated to Hyperledger Projects Tutorials.
 <img src="https://www.hyperledger.org/wp-content/uploads/2018/01/Hyperledger_Sawtooth_Logo_Color-768x166.png" width="200" align="center">
 </p>  
 
-# License
-
-MIT
