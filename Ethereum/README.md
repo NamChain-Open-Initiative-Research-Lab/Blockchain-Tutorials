@@ -21,15 +21,16 @@ A Repository dedicated to Ethereum Blockchain Tutorials.
     - Web Service like XAMPP 
     
  ## Tutorial Topics
-  - Ethereum Blockchain Overview
-  - Solidity Programming Language Basics
-  - Metamask and Faucet
-  - Infura Service
-  - Web3.js Basics
-  - Interplanetary File System (IPFS)
-  - CryptoTokens (ERC-20, ERC-721, ERC-1155)
-  - Identity Management Standards (ERC-725 and ERC-735)
-  - Oracles 
+  - [Ethereum Blockchain Overview](#ethereum-blockchain-overview)
+  - [Solidity Programming Language Basics](#solidity-programming-basics)
+  - [Metamask and Faucet](#metamask-and-faucet)
+  - [Infura Service](#infura-service)
+  - [Web3.js Basics](Web3js-basics)
+  - [Interplanetary File System (IPFS)](#ipfs)
+  - [CryptoTokens (ERC-20, ERC-721, ERC-1155)](#cryptotokens)
+  - [Identity Management Standards (ERC-725 and ERC-735)](#identity-management)
+  - [Oracles](#oracles)
+  - [Examples](#examples)
       
 ## Ethereum Blockchain Overview
 
@@ -114,7 +115,7 @@ On **Compilation** of Solidity Program, we get **ABI (Application Binary Interfa
 
 **Infura** is a Ethereum and IPFS Service provider. Instead of running our own Ethereum and IPFS node at local machine, we can use their service through the APIs. You can [signup](https://infura.io/) to use their service.
 
-## Web3.js
+## Web3.js Basics
 
 **Web3.js** is a collection of javascript libraries which enables communication with local or remote Ethereum using HTTP or RPC communication. 
 
@@ -255,6 +256,3 @@ Identity Managment is one of the major challenges faced across the globe and in 
     DApp Hero is a 3rd party service which generates HTML page / Website based on your Smart Contract, enabling the developer in quick DApp creation.
     - [Store and Retrieve](Simple%20DApps/DAppHero_Example.html)
 
-# License
-
-MIT
