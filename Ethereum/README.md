@@ -28,8 +28,11 @@ A Repository dedicated to Ethereum Blockchain Tutorials.
   - [Web3.js Basics](Web3js-basics)
   - [Interplanetary File System (IPFS)](#ipfs)
   - [CryptoTokens (ERC-20, ERC-721, ERC-1155)](#cryptotokens)
-  - [Identity Management Standards (ERC-725 and ERC-735)](#identity-management)
+  - [Identity Management Standards (ERC-725 and ERC-735)](#identity-management-standards)
   - [Oracles](#oracles)
+  - [Ganache](#ganache)
+  - [Truffle](#truffle)
+  - [Solidity Vulnerability Analysis](#solidity-vulnerability-analysis)
   - [Examples](#examples)
       
 ## Ethereum Blockchain Overview
@@ -176,7 +179,7 @@ Below Web3.js code should be included in your HTML page to detect and define the
 
 **ERC - Ethereum Request for Comments** is a standard within Ethereum Blockchain similar to RFC's for Internet Engineering Task Force (IETF).
 
-## Identity Management 
+## Identity Management Standards
 Identity Managment is one of the major challenges faced across the globe and in various application domain. Ethereum proposed two standards for Identity Management (ERC-725) and Claim verification (ERC-735). 
 
 - **ERC-725** supports Self-Soverign Identity could describe a human, a group or organisation, machine, real-world objects. These are simply a proxy smart contract controlled by multiple keys and smart contracts. The advantage is the user manages their own identity.
@@ -192,6 +195,40 @@ Identity Managment is one of the major challenges faced across the globe and in 
 	- IPFS
 	- WolframAlpha
 	
+## Ganache
+
+**Ganache** is a personal blockchain for rapid Ethereum DApp from develop, deploy and test in safe environment. Ganache can mine, acts as a wallet which has 10 accounts each with 100 ETH Balance, allows the user to explore the blocks and transactions happened so far.
+
+<p align="center">
+<img src="https://www.trufflesuite.com/img/ganache-logo-dark.svg" width="100" align="center">
+</p>  
+
+## Truffle
+
+**Truffle Framework** is the popular development framework for Etherum Blockchain which handles the complete smart contract life cycle management.
+
+<p align="center">
+<img src="https://www.trufflesuite.com/img/truffle-header.svg" width="200" align="center">
+</p>  
+
+```
+npm install -g truffle
+truffle init
+truffle compile
+truffle migrate
+truffle debug
+truffle test
+truffle deploy
+truffle publish
+```
+
+## Solidity Vulnerability Analysis
+
+Smart Contracts as known is the contract agreed between the parties transacting on Ethereum Blockchain. The Smart contract and the values maintained by the contract are stored in this immutable ledger, so it is very important to ensure that the smart contract does not have any vulnerability. 
+
+- [Smart Check](https://tool.smartdec.net/)
+- [MythX](https://mythx.io/)
+
 
 ## Examples
 
@@ -245,6 +282,15 @@ Identity Managment is one of the major challenges faced across the globe and in 
     - [MyERC721Token.sol](https://ipfs.io/ipfs/QmaCKsKDWMK8nmip51YCBgaUakU6zErwBnM6i8NdgPhdna)
         - [Contract Link](https://ropsten.etherscan.io/address/0xecff6e3fdf43146ae8e5a093a82b922777218807)
         - [NFT Token Tracker](https://ropsten.etherscan.io/address/0xecff6e3fdf43146ae8e5a093a82b922777218807)
+	
+  - **ERC1155**     
+
+
+  - **Oracles** 	
+  
+  
+  - **Identity Management** 
+  
 
 - <b>One Click DApp</b> <br/>
     One Click DApp is a 3rd party service which generates a UI which can be accessed using a public link. 
