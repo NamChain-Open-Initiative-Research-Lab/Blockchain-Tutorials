@@ -18,6 +18,7 @@ A Repository dedicated to Blockchain Technology Tutorials.
 - [MultiChain](Multichain)
 - [IOTA](IOTA)
 - [Hashgraph](Hashgraph)
+- [Binance Smart Chain](Binance)
 - [நம்Chain](https://github.com/NamChain-Open-Initiative-Research-Lab/NamChain)
 
 # License
