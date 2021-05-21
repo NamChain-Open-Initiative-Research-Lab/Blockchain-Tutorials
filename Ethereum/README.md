@@ -10,9 +10,9 @@ A Repository dedicated to Ethereum Blockchain Tutorials.
 
 ## Prerequisite
 - Knowledge on 
-    - HTML
-    - CSS
+    - HTML/CSS
     - JavaScript / Node.js
+    - Blockchain Concepts
     
  - Install
     - Metamask Browser Extension (Firefox / Chrome / Brave Browsers)
@@ -32,6 +32,7 @@ A Repository dedicated to Ethereum Blockchain Tutorials.
   - [Oracles](#oracles)
   - [Ganache](#ganache)
   - [Truffle](#truffle)
+  - [Solidity Source Code Testing](#solidity-source-code-testing)
   - [Solidity Vulnerability Analysis](#solidity-vulnerability-analysis)
   - [Examples](#examples)
       
@@ -54,13 +55,21 @@ For development of Smart Contracts using Solidity, Ethereum provides its own onl
 Below code shows the Solidity Template for your reference.
 
 ```
+Filename: Sample.sol
+
+
+// SPDX-License-Identifier: GPL-3.0
+
 pragma solidity >=0.4.22 <0.7.0;
+import "<<path-or-link-to-file-to-be-imported>>"
 
 /**
  * @title Solidity Template
  * @author Ramaguru Radhakrishnan
  */
  contract <<contractName>> {
+ 
+    mapping(datatype => datatype) public mapvar1; //Mapping to store a Key-Value 
 
     uint64 intvar1;	// Variable of Unsigned Integer with 64 bits 
     uint128 intvar2;    // Variable of Unsigned Integer with 128 bits
@@ -69,6 +78,8 @@ pragma solidity >=0.4.22 <0.7.0;
     string  stringvar;	// Variable of String
     
     address addressvar; // Variable of Address - to store Ethereum Wallet Address or Smart Contract Address
+    
+    address owner; // For assigning owner of the smart contract
     
     struct structvar {
         
@@ -81,11 +92,19 @@ pragma solidity >=0.4.22 <0.7.0;
     /** Constructor */
     constructor() {}
     
+    /** modifier to provide access control **/
+    modifier isOwner() {
+        // If the first argument of 'require' evaluates to 'false', execution terminates and all changes to the state and to Ether balances are reverted.
+        require(msg.sender == owner, "Caller is not owner");
+        _;
+    }
+    
+    
     /**
-     * @dev Example Function to perform operation and store
+     * @dev Example Function to perform operation and store (only owner can make a successful call)
      * @param num value to store
      */
-    function <<functionName>>(paramaters) public {
+    function <<functionName>>(paramaters) public isOwner {
         // do function operations
     }
     
@@ -184,6 +203,7 @@ Identity Managment is one of the major challenges faced across the globe and in 
 
 - **ERC-725** supports Self-Soverign Identity could describe a human, a group or organisation, machine, real-world objects. These are simply a proxy smart contract controlled by multiple keys and smart contracts. The advantage is the user manages their own identity.
 - **ERC-735** is a associated standard for ERC-725 which allows to add or remove claim about an ERC-725 identity.
+- **ERC-1056** is a lightweight DID-compliant Identity standard which use Ethereum address as the DID.
 
 ## Oracles
 
@@ -213,19 +233,67 @@ Identity Managment is one of the major challenges faced across the globe and in 
 
 ```
 npm install -g truffle
+truffle unbox
 truffle init
 truffle compile
-truffle migrate
+truffle migrate (deploy)
+truffle develop
+truffle console
 truffle debug
 truffle test
-truffle deploy
 truffle publish
 ```
+The developer can interact with the contract and test using the built-in truffle console. To start the truffle console use the below command
+
+```
+truffle console
+```
+
+## Solidity Source Code Testing
+Solidity Program or Source Code has to be tested for logic errors, ensure best coding practices, proper memory usage and to detect privacy and security issues.
+Through a dedicated unit test either through solidity or js, we can test the solidity code before deploying it in the Mainnet. 
+
+Below you can see the Javascript based testing through Truffle Framework. The file should be placed in the **test** folder and shall be executed by the command 
+
+```
+truffle test
+```
+
+```
+FileName: SampleTest.js
+
+
+const contractvar = artifacts.require(<<contract-name>>);
+
+contract("Testing Contract", async accounts => {
+	
+  it("Testcase 1", async () => {
+    const instance = await contractvar.deployed();
+    await instance.function1(param1);
+    var output = await instance.function2.call();
+    assert.equal(output, <<expected-result>>);
+  });
+  
+  it("Testcase 2", async () => {
+
+  });
+  
+  ...
+  ...
+  
+  it("Testcase n", async () => {
+
+  });
+
+});
+```
+
 
 ## Solidity Vulnerability Analysis
 
 Smart Contracts as known is the contract agreed between the parties transacting on Ethereum Blockchain. The Smart contract and the values maintained by the contract are stored in this immutable ledger, so it is very important to ensure that the smart contract does not have any vulnerability. 
 
+- [Ethereum Contract Library](https://contract-library.com/)
 - [Smart Check](https://tool.smartdec.net/)
 - [MythX](https://mythx.io/)
 
