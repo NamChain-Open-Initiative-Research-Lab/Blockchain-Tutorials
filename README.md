@@ -1,4 +1,4 @@
-# நம்Chain - Open Initiative Research Lab ![](https://img.shields.io/badge/Project-Nam-ff69b4.svg) ![](https://img.shields.io/badge/madeby-Ramaguru-blue.svg)
+# நம்Chain® Open Initiative Research Lab ![](https://img.shields.io/badge/Project-Nam-ff69b4.svg) ![](https://img.shields.io/badge/madeby-Ramaguru-blue.svg)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNamChain-Open-Initiative-Research-Lab%2FBlockchain-Tutorials.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FNamChain-Open-Initiative-Research-Lab%2FBlockchain-Tutorials?ref=badge_shield)
 
 <p align="center">
