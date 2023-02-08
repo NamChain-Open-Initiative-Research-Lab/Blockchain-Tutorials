@@ -20,7 +20,7 @@ A Repository dedicated to Ethereum Blockchain Tutorials.
     - [IPFS Desktop](https://ipfs.io/)
     - Web Service like XAMPP 
     
- ## Tutorial Topics
+## Tutorial Topics
   - [Ethereum Blockchain Overview](#ethereum-blockchain-overview)
   - [Solidity Programming Language Basics](#solidity-programming-basics)
   - [Metamask and Faucet](#metamask-and-faucet)
