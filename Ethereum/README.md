@@ -9,12 +9,12 @@
 A Repository dedicated to Ethereum Blockchain Tutorials.
 
 ## Prerequisite
-- Knowledge on 
+- **Knowledge on**
     - HTML/CSS
     - JavaScript / Node.js
     - Blockchain Concepts
     
- - Install
+ - **Install**
     - Metamask Browser Extension (Firefox / Chrome / Brave Browsers)
     - [IPFS Companion Browser Extension](https://ipfs.io/)
     - [IPFS Desktop](https://ipfs.io/)
@@ -123,12 +123,27 @@ import "<<path-or-link-to-file-to-be-imported>>"
 
 On **Compilation** of Solidity Program, we get **ABI (Application Binary Interface)** along with Bytecodes. ABI is similar to API. On Running the Smart Contract, which actually **deploys** the Smart Contract on to the Blockchain, we get **Smart Contract Address**. These are the two important details required for accessing the Contract from the WebUI or FrontEnd in general.
 
+## Testnet
+A Testnet is a safe, secure and cost-effective testing (blockchain) network primarily used for dApps development, testing smart contracts, protocol upgrade, and staking. This is alternative to the mainnet where the tokens/currency are not real.
+
+| Testnet Name | Consensus Mechanism | Date of Launch | Network ID | Purpose | Deprecated On | Notes |
+|--------------|---------------------|----------------|------------|---------|---------------|-------|
+| Olympic      | PoW (Proof of Work) | May 2015       | 0          | Initial testing phase for Ethereum before mainnet launch | July 2015 | Referred as Ethereum 0.9 |
+| Morden       | PoW (Proof of Work) | August 2015    | 2          | First long-running public testnet after Olympic | November 2016 | | 
+| Ropsten      | PoW (Proof of Work) | November 2016  | 3          | General purpose testnet, mimics Ethereum mainnet | December 2022 | Named after a Metro Station in Stockholm, Sweden |
+| Kovan        | PoA (Parity)        | March 2017     | 42         | High stability and resilience for dapp testing | TBD (2024) | Named after a Station in Hougang, Singapore|
+| Rinkeby      | PoA (Clique)        | April 2017  | 4          | Dapp development, stable testnet with reduced risk of spam | TBD (2024) | Named after a Metro Station in Stockholm, Sweden |
+| Goerli       | PoA (Clique)        | March 2019     | 5          | Cross-client testing, unified testnet for multiple clients | Active |
+
+| **Sepolia**      | PoS (Proof of Stake) | October 2021   | 11155111   | Testing Ethereum's transition to PoS, merge testing | Active |
+| **Holesky**       | PoS (Proof of Stake) | September 2023   | 17000   | Testing Ethereum's transition to PoS, merge testing | Active |
+
 ## Metamask and Faucet
 
 **Metamask** is a Browser Extension, is a tool which acts as a bridge for communication between the traditional browser to the blockchain (Distributed Web). Web3.js is used in the User Interface Component to enable communication with the Blockchain via Metamask. Metamask also has an inbuilt Wallet which on installation creates a Ethereum Wallet Address (identified by Hex numbers). More on Metamask is [here](https://namchain.blogspot.com/p/metamask.html).
 
 <p align="center">
-<img src="https://metamask.io/images/mm-logo.svg" width="200" align="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg" width="200" align="center">
 </p>  
 
 **Faucet** is a developer support system which provides the Ether for development and testing purposes to our wallet address. [Click Here](https://faucet.metamask.io/) to access the Faucet and get your Test Ether. 
