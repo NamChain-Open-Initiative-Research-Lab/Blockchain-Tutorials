@@ -23,6 +23,7 @@ A Repository dedicated to Ethereum Blockchain Tutorials.
 ## Tutorial Topics
   - [Ethereum Blockchain Overview](#ethereum-blockchain-overview)
   - [Solidity Programming Language Basics](#solidity-programming-basics)
+  - [Testnet](#testnet)
   - [Metamask and Faucet](#metamask-and-faucet)
   - [Infura Service](#infura-service)
   - [Web3.js Basics](Web3js-basics)
@@ -44,7 +45,7 @@ A Repository dedicated to Ethereum Blockchain Tutorials.
 
 **Ethereum** is a second generation Blockchain Technology which is widely referred to as *World Computer*. The native cryptocurrency of the Ethereum Blockchain is called **"Ether (ETH)"**. Ethereum also provides the users the programming capability through its Smart Contract Programming. **Distributed Application (DApps)** can be developed using the smart contracts which is deployed and runs on the Ethereum Blockchain. 
 
-Ethereum Blockchain uses **Ethereum Virtual Machine (EVM)** to execute the transactions. Ethereum uses memory-based Proof of Work (PoW) consensus algorithm. It also offers multiple testnets (Ropsten, Goerli, Kovan, Rinkeby) and private blockchain (Ganache) & Truffle Framework support for the development and testing of smart contracts. 
+Ethereum Blockchain uses **Ethereum Virtual Machine (EVM)** to execute the transactions. Ethereum used memory-based Proof of Work (PoW) consensus algorithm. As on today, ethereum uses Proof of Stake (PoS) after **The Merge** with Beacon Chain. It also offers multiple testnets (Sepolia, Ropsten, Goerli, Kovan, Rinkeby) and private blockchain (Ganache) & Truffle Framework support for the development and testing of smart contracts. 
 
 ## Solidity Programming Basics
 
@@ -134,7 +135,6 @@ A Testnet is a safe, secure and cost-effective testing (blockchain) network prim
 | Kovan        | PoA (Parity)        | March 2017     | 42         | High stability and resilience for dapp testing | TBD (2024) | Named after a Station in Hougang, Singapore|
 | Rinkeby      | PoA (Clique)        | April 2017  | 4          | Dapp development, stable testnet with reduced risk of spam | TBD (2024) | Named after a Metro Station in Stockholm, Sweden |
 | Goerli       | PoA (Clique)        | March 2019     | 5          | Cross-client testing, unified testnet for multiple clients | Active |
-
 | **Sepolia**      | PoS (Proof of Stake) | October 2021   | 11155111   | Testing Ethereum's transition to PoS, merge testing | Active |
 | **Holesky**       | PoS (Proof of Stake) | September 2023   | 17000   | Testing Ethereum's transition to PoS, merge testing | Active |
 
